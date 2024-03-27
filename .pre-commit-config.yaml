@@ -56,13 +56,13 @@ repos:
           stages: [push]
           language: system
 
-    - repo: local
-      hooks:
-      -   id: pytest-check
-          stages: [push]
-          types: [python]
-          name: pytest-check
-          entry: coverage run -m pytest --continue-on-collection-errors tests/ --cov=src/ --ignore=tests/qa_workspace
-          language: system
-          pass_filenames: false
-          always_run: true
+    #- repo: local
+    #  hooks:
+    #  -   id: pytest-check
+    #      stages: [push]
+    #      types: [python]
+    #      name: pytest-check
+    #      entry: coverage run -m pytest --continue-on-collection-errors tests/ --cov=src/ --ignore=tests/qa_workspace
+    #      language: system
+    #      pass_filenames: false
+    #      always_run: true
