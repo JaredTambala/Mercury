@@ -12,14 +12,14 @@ class DataFormatter(ABC):
 
     @staticmethod
     @abstractmethod
-    def input_format(opt: object) -> object:
+    def input_format(opt):
         """
         Formatting function for data ingested from external API
         """
 
     @staticmethod
     @abstractmethod
-    def output_format(opt: object) -> object:
+    def output_format(opt):
         """
         Formatting function for data fetched from persistent store
         """

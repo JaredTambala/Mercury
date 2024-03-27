@@ -25,7 +25,7 @@ class DataClient(ABC):
 
     @auth_cred.setter
     @abstractmethod
-    def auth_cred(self, val: object) -> None:
+    def auth_cred(self, val) -> None:
         """
         Property for authentication credentials - setter
         """
@@ -39,13 +39,13 @@ class DataClient(ABC):
 
     @conn_info.setter
     @abstractmethod
-    def conn_info(self, val: object) -> None:
+    def conn_info(self, val) -> None:
         """
         Property for connection information - getter
         """
 
     @abstractmethod
-    def request_data(self, opt: object) -> object:
+    def request_data(self, opt):
         """
         Function for requesting data from external souce
         """

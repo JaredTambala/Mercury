@@ -17,54 +17,54 @@ class DataRequestHandler(ABC):
 
     @property
     @abstractmethod
-    def start_date(self) -> object:
+    def start_date(self):
         """
         Property for start date - getter
         """
 
     @start_date.setter
     @abstractmethod
-    def start_date(self, val: object) -> None:
+    def start_date(self, val) -> None:
         """
         Property for start date - setter
         """
 
     @property
     @abstractmethod
-    def end_date(self) -> object:
+    def end_date(self):
         """
         Property for end date - getter
         """
 
     @end_date.setter
     @abstractmethod
-    def end_date(self, val: object) -> None:
+    def end_date(self, val) -> None:
         """
         Property for end date - setter
         """
 
     @property
     @abstractmethod
-    def asset_type(self) -> object:
+    def asset_type(self):
         """
         Property for asset type - getter
         """
 
     @asset_type.setter
     @abstractmethod
-    def asset_type(self, val: object) -> None:
+    def asset_type(self, val) -> None:
         """
         Property for asset type - setter
         """
 
     @abstractmethod
-    def get_data(self, opt_dict: object) -> object:
+    def get_data(self, opt_dict):
         """
         Function for requesting data from external source
         """
 
     @abstractmethod
-    def input_validation(self, opt_dict: object) -> bool:
+    def input_validation(self, opt_dict):
         """
         Function for validating input
         """

@@ -16,13 +16,13 @@ class DataService(ABC):
         """
 
     @abstractmethod
-    def save_data_to_store(self, data: object) -> None:
+    def save_data_to_store(self, data) -> None:
         """
         Function for saving data to external data storage
         """
 
     @abstractmethod
-    def format_data(self, data: object) -> object:
+    def format_data(self, data):
         """
         Function for formatting data
         """

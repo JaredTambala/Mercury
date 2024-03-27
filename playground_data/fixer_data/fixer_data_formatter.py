@@ -31,7 +31,7 @@ class FixerDataFormatter(DataFormatter):
         to_curr = list(json_data["rates"][list(json_data["rates"].keys())[0]].keys())[0]
         # loop through rates and add each key-value to lists
         curr_pair = f"{base_curr}{to_curr}"
-        format_dict = {"Date": [], curr_pair: []}
+        format_dict: dict = {"Date": [], curr_pair: []}
         for date, rate_dict in json_data["rates"].items():
             format_dict["Date"].append(date)
             rate = list(rate_dict.values())[0]
