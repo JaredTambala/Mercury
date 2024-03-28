@@ -1,4 +1,4 @@
-# pylint: disable=R0914,R1730
+# pylint: disable=R0914,R1730,W0221
 """
 Implementation of Data Client for Fixer API
 """
@@ -10,7 +10,6 @@ from pathlib import Path
 import requests
 from dateutil.relativedelta import relativedelta
 from dotenv import load_dotenv
-from pandas import DataFrame
 
 from playground_data.abstract_data import DataClient
 
@@ -47,7 +46,7 @@ class FixerDataClient(DataClient):
         self.conn_info = {"FIXER_API_URL": os.getenv("FIXER_API_URL")}
         self.auth_cred = {"FIXER_API_KEY": os.getenv("FIXER_API_KEY")}
 
-    def request_data(self, opt: dict) -> DataFrame:
+    def request_data(self, opt):
         """
         Sends requests to Fixer API Time Series API to fetch OHLC data for Forex currency pairs.
         Makes one API request for every year of data requested. Limited to 10 years of data for
@@ -106,3 +105,6 @@ class FixerDataClient(DataClient):
             response = requests.request("GET", fixer_url, headers=headers, timeout=10)
             responses.append(response.json())
         return responses
+
+    def build_request(self, **kwargs):
+        pass
