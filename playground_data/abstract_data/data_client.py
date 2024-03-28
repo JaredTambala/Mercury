@@ -100,7 +100,7 @@ class RestApiDataClient(DataClient):
         response = requests.request(method, url, self.request_header, timeout=_timeout)
         return response.json()
 
-    def build_request(self, base_url: str, query_dict: dict) -> str:
+    def build_request(self, base_url, query_dict):
         """
         Builds a full URL string with query from a base url and a key-value dictionary. For example,
         given a url "http://www.mysite.com" and a query dictionary {"name": Jacob, "age": 34}, the
