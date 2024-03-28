@@ -84,7 +84,7 @@ class RestApiDataClient(DataClient):
         """
         self._request_header = val
 
-    def request_data(self, method: str, url: str, _timeout: int) -> dict:
+    def request_data(self, method: str, url: str, _timeout: int):
         """
         Used for requesting data from a REST API. Returns response as JSON
         dictionary
