@@ -1,0 +1,68 @@
+default_language_version:
+  python: python3.10
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+        - id: check-yaml
+          stages: [commit]
+        - id: end-of-file-fixer
+          stages: [commit]
+        - id: trailing-whitespace
+          stages: [commit]
+
+    - repo: local
+      hooks:
+        - id: isort
+          name: isort (python)
+          types: [python]
+          entry: isort
+          stages: [commit]
+          language: system
+          args: ["--profile", "black", "--filter-files"]
+
+    - repo: local
+      hooks:
+        - id: black
+          name: black (python)
+          entry: black
+          types: [python]
+          stages: [commit]
+          language: system
+
+    - repo: local
+      hooks:
+        - id: pylint
+          name: pylint (python)
+          entry: pylint
+          types: [python]
+          stages: [commit]
+          language: system
+          args:
+            [
+              "-rn", #Only display messages
+              "-sn", #Don't display the score
+              "--disable=E0401",
+              "--max-line-length=120",
+              "--output-format=colorized",
+              "--extension-pkg-allow-list=lxml.etree"]
+
+    - repo: local
+      hooks:
+        - id: mypy
+          name: mypy (python)
+          entry: mypy --explicit-package-base --ignore-missing-imports
+          types: [python]
+          stages: [push]
+          language: system
+
+    #- repo: local
+    #  hooks:
+    #  -   id: pytest-check
+    #      stages: [push]
+    #      types: [python]
+    #      name: pytest-check
+    #      entry: coverage run -m pytest --continue-on-collection-errors tests/ --cov=src/ --ignore=tests/qa_workspace
+    #      language: system
+    #      pass_filenames: false
+    #      always_run: true
