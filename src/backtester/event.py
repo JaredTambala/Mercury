@@ -31,7 +31,7 @@ class SignalEvent(Event):
     Represents the event of sending a signal from a Strtategy to a Portfolio
     """
 
-    def __init__(self, _symbol: str, _date: datetime, _signal_type: str):
+    def __init__(self, _symbol: str, _date: datetime.datetime, _signal_type: str):
         """
         Initialises the trading signal event
 
