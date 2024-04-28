@@ -40,7 +40,7 @@ class SignalEvent(Event):
             _date (datetime): Event time
             _signal_type (str): Type of signal
         """
-        # type validation
+        # type and value validation
         try:
             assert isinstance(_symbol, str) and _symbol in SYMBOLS
             assert isinstance(_date, datetime.datetime)
