@@ -42,7 +42,7 @@ repos:
             [
               "-rn", #Only display messages
               "-sn", #Don't display the score
-              "--disable=E0401",
+              "--disable=E0401,R0903",
               "--max-line-length=120",
               "--output-format=colorized",
               "--extension-pkg-allow-list=lxml.etree"]
