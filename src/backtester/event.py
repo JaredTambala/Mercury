@@ -1,3 +1,4 @@
+# pylint: disable=R0902
 """
 Module containing objects representing various kinds of of events
 """
@@ -99,3 +100,52 @@ class OrderEvent(Event):
             raise RuntimeError(
                 f"Could not generate string representation of order. {str(e)}"
             ) from e
+
+
+class FillEvent(Event):
+    """
+    Represents a filled order returned from a brokerage. Stores the quantity
+    and price of the asset. Stores the brokerage commission from the trade
+    """
+
+    def __init__(
+        self,
+        _time_index: str,
+        _symbol: str,
+        _exchange: str,
+        _quantity: int,
+        _direction: str,
+        _fill_cost: int,
+        _commission: int,
+    ):
+        """
+        Initialises the object.
+
+        Args:
+            _time_index (str): Bar resolution when order was filled
+            _symbol (str): Instrument which was filled
+            _exchange (str): Exchange where the order was filled
+            _quantity (int): Filled quantity
+            _direction (str): Direction of fill
+            _fill_cost (int): Holding value
+            _commission (Union[int, None]): Commission (optional)
+        """
+        # type validation
+        try:
+            assert isinstance(_time_index, str)
+            assert isinstance(_symbol, str)
+            assert isinstance(_exchange, str)
+            assert isinstance(_quantity, int)
+            assert isinstance(_direction, str)
+            assert isinstance(_fill_cost, int)
+            assert isinstance(_commission, int)
+        except AssertionError as e:
+            raise TypeError(f"Bad initialisation. {str(e)}") from e
+        self.type = "FILL"
+        self.time_index = _time_index
+        self.symbol = _symbol
+        self.exchange = _exchange
+        self.quantity = _quantity
+        self.direction = _direction
+        self.fill_cost = _fill_cost
+        self.commission = _commission
