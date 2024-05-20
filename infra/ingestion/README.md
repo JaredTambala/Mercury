@@ -13,8 +13,11 @@ This folder has been added to .gitignore and will not be committed.
 
 #### Step 2
 
+
+#### Step 3
+
 If you just want to test Airbyte, navigate inside the airbyte folder and run
 ```bash
 docker compose up
 ```
-Otherwise, run this command from this top-level directory
+Otherwise, copy the .env, flags.yaml, and temporal/ directory into your working directory, and run this command
